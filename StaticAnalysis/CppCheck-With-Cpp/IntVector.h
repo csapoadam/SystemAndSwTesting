@@ -8,7 +8,7 @@ public:
     IntVector() : currentNumElements(0), currentSizeInMemory(10) {
         firstElement = new int[currentSizeInMemory];
     }
-    ~IntVector() {
+    virtual ~IntVector() {
         delete[] firstElement;
     }
     IntVector(const IntVector& other);
@@ -18,9 +18,9 @@ public:
     IntVector(IntVector&& other) noexcept;
     IntVector& operator=(IntVector&& other) noexcept;
 
-    int getSize() { return currentNumElements; }
+    int getSize() const { return currentNumElements; }
 
-    int operator[](int inx) { return *(firstElement + inx); }
+    int operator[](int inx) const { return *(firstElement + inx); }
 
     IntVector& addElement(int elem);
     virtual void print();
