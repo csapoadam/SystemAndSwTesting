@@ -1,0 +1,12 @@
+{
+  "name": "js-pmd-logserver",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "pmd -d . -f text -R category/ecmascript/codestyle.xml,category/ecmascript/bestpractices.xml,category/ecmascript/design.xml,category/ecmascript/documentation.xml,category/ecmascript/errorprone.xml,category/ecmascript/performance.xml,category/ecmascript/security.xml -language ecmascript",
+    "start": "node server.js"
+  },
+  "author": "Adam B. Csapo",
+  "license": "ISC",
+  "description": ""
+}
