@@ -6,8 +6,8 @@ IntVector::IntVector(const IntVector& other) :
     currentSizeInMemory(other.currentSizeInMemory)
 {
     //std::cout << "  -> copy CSTR called" << std::endl;
-    firstElement = new int[currentSizeInMemory];
-    for (int inx = 0; inx < currentNumElements; inx++) {
+    firstElement = new size_t[currentSizeInMemory];
+    for (size_t inx = 0; inx < currentNumElements; inx++) {
         *(firstElement + inx) = *(other.firstElement + inx);
     }
 }
@@ -17,13 +17,13 @@ IntVector& IntVector::operator=(const IntVector& other) {
     if (this == &other) { return *this; }
     // eloszor felszabaditjuk a beltartalmat - visszaadjuk a rendszernek
     // a memoriat
-    delete firstElement;
+    delete[] firstElement;
 
     // ezt kovetoen lemasoljuk other-t
     currentNumElements = other.currentNumElements;
     currentSizeInMemory = other.currentSizeInMemory;
-    firstElement = new int[currentSizeInMemory];
-    for (int inx = 0; inx < currentNumElements; inx++) {
+    firstElement = new size_t[currentSizeInMemory];
+    for (size_t inx = 0; inx < currentNumElements; inx++) {
         *(firstElement + inx) = *(other.firstElement + inx);
     }
     return *this;
@@ -50,13 +50,13 @@ IntVector& IntVector::operator=(IntVector&& other) noexcept {
     return *this;
 }
 
-IntVector& IntVector::addElement(int elem) {
+IntVector& IntVector::addElement(size_t elem) {
     if (currentNumElements == currentSizeInMemory) {
         // uj mem.teruletet is le kell foglalnunk...
         //std::cout << "  -> adding " << currentNumElements + 1 << "-th ";
         //std::cout << "element... allocating new memory" << std::endl;
-        int* newAddress = new int[currentSizeInMemory + 10];
-        for (int inx = 0; inx < currentNumElements; inx++) {
+        size_t* newAddress = new size_t[currentSizeInMemory + 10];
+        for (size_t inx = 0; inx < currentNumElements; inx++) {
             *(newAddress + inx) = *(firstElement + inx);
         }
         delete[] firstElement;
@@ -71,7 +71,7 @@ IntVector& IntVector::addElement(int elem) {
 void IntVector::print() {
     if (currentNumElements > 0) {
         std::cout << *firstElement;
-        for (int inx = 1; inx < currentNumElements; inx++) {
+        for (size_t inx = 1; inx < currentNumElements; inx++) {
             std::cout << ", " << *(firstElement + inx);
         }
         std::cout << std::endl;

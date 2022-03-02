@@ -1,12 +1,12 @@
 #pragma once
 
 class IntVector {
-    int currentNumElements; // hany elemet adott hozza a user
-    int currentSizeInMemory; // mekkora mem.terulet van lefoglalva
-    int* firstElement;
+    size_t currentNumElements; // hany elemet adott hozza a user
+    size_t currentSizeInMemory; // mekkora mem.terulet van lefoglalva
+    size_t* firstElement;
 public:
     IntVector() : currentNumElements(0), currentSizeInMemory(10) {
-        firstElement = new int[currentSizeInMemory];
+        firstElement = new size_t[currentSizeInMemory];
     }
     virtual ~IntVector() {
         delete[] firstElement;
@@ -18,10 +18,10 @@ public:
     IntVector(IntVector&& other) noexcept;
     IntVector& operator=(IntVector&& other) noexcept;
 
-    int getSize() const { return currentNumElements; }
+    size_t getSize() const { return currentNumElements; }
 
-    int operator[](int inx) const { return *(firstElement + inx); }
+    size_t operator[](size_t inx) const { return *(firstElement + inx); }
 
-    IntVector& addElement(int elem);
+    IntVector& addElement(size_t elem);
     virtual void print();
 };
