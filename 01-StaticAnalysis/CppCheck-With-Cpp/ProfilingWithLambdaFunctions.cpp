@@ -44,14 +44,16 @@ void helper() {
     IntVector vec2;
     vec2.addElement(99).addElement(100);
 
-    ProfilerClass profiler{ 100000 };
+    ProfilerClass profiler{100000};
     profiler.profile([&vec, &vec2]() { swapIntVecsWithCopy(vec, vec2); }, "swapWithCopy");
     profiler.profile([&vec, &vec2]() { swapIntVecsWithMove(vec, vec2); }, "swapWithMove");
+
 }
 
 
 int main() {
     helper();
+
     _CrtDumpMemoryLeaks();
 }
 

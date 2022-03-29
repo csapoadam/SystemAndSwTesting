@@ -1,0 +1,20 @@
+{
+  "name": "typescripttest",
+  "version": "1.0.0",
+  "description": "I can write a description",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "author": "Adam Csapo",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "typescript": "^4.6.3"
+  }
+}
