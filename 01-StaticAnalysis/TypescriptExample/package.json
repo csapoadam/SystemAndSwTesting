@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+    "complex": "npx eslint -f complexity index.ts || true",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
+    "eslint-formatter-complexity": "latest",
     "eslint": "^8.12.0",
     "typescript": "^4.6.3"
   }

@@ -8,6 +8,22 @@ type StringOrNumber = string | number
 //	//{value: 8}
 //];
 
+const someFunction = (one, two, three, four, five, six) => {
+	return one + two + three + four + five + six
+}
+
+const complexFunction = (input: int) => {
+	if (input < 2) {
+		return 5;
+	} else if (input < 7) {
+		return 6;
+	} else if (input < 12) {
+		return 7;
+	} else if (input < 15) {
+		return 9;
+	}
+}
+
 // however:
 //interface ObjectWithName {
 //	name: string
